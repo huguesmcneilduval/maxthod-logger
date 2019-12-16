@@ -20,7 +20,6 @@ const myFormat = printf(({
 }) => {
 	return `[${timestamp} [${label}] ${level}]: ${message}`;
 });
-
 const loglevel = process.env.LOG_LEVEL || "info"
 
 const logger = function (filename) {
@@ -30,7 +29,6 @@ const logger = function (filename) {
 		format: combine(
 			format.splat(),
 			format.simple(),
-			format(logFormatter),
 			label({
 				label: _filename,
 				level: process.env.LOG_LEVEL || "info",
